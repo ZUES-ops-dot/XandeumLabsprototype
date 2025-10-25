@@ -1,0 +1,31 @@
+{
+  "name": "xandeum-pnode-analytics",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "services/*",
+    "infra/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,idx,ana,web -c blue,green,yellow,magenta \"npm run dev:api\" \"npm run dev:indexer\" \"npm run dev:analytics\" \"npm run dev:web\"",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:indexer": "npm --workspace services/indexer run dev",
+    "dev:analytics": "npm --workspace services/analytics run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "build": "npm run build:packages && npm --workspaces run build",
+    "build:packages": "npm --workspace packages/shared run build && npm --workspace packages/database run build && npm --workspace packages/logger run build",
+    "db:up": "powershell -NoProfile -Command \"if (-not (Get-Command docker -ErrorAction SilentlyContinue)) { Write-Host 'Docker is not installed or not on PATH.' -ForegroundColor Red; Write-Host 'Install Docker Desktop and ensure `docker` works, OR run a local Postgres on port 5432.' -ForegroundColor Yellow; exit 1 } ; docker compose up -d db\"",
+    "db:down": "docker compose down",
+    "db:migrate": "npm --workspace infra/db run migrate",
+    "clean": "powershell -Command \"Get-ChildItem -Recurse -Directory -Filter 'dist' | Remove-Item -Recurse -Force; Get-ChildItem -Recurse -Directory -Filter '.next' | Remove-Item -Recurse -Force\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@types/pg": "^8.11.10",
+    "concurrently": "^9.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

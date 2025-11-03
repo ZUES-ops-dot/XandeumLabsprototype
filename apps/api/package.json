@@ -1,0 +1,20 @@
+{
+  "name": "@xandeum/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^9.0.0",
+    "@fastify/rate-limit": "^9.0.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1",
+    "lru-cache": "^10.2.2",
+    "pg": "^8.13.1",
+    "pino-pretty": "^11.0.0",
+    "zod": "^3.24.1"
+  }
+}

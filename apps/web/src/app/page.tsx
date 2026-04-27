@@ -202,7 +202,7 @@ export default async function Page() {
         />
         <StatCard
           title="Last Gossip"
-          value={overview.lastGossipAt ? formatDateTime(overview.lastGossipAt) : '—'}
+          value={overview.lastGossipAt ? formatDateTime(overview.lastGossipAt) : '--'}
           subvalue="Most recent snapshot"
           icon={<Clock className="h-5 w-5" />}
           variant="purple"

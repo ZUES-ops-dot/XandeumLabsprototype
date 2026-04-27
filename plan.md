@@ -1,4 +1,4 @@
-# Xandeum pNode Analytics Platform — MVP Build Plan
+# Xandeum pNode Analytics Platform -- MVP Build Plan
 
 ## 1) Outcomes (MVP)
 - Discover pNodes visible via gossip (continuous snapshots)

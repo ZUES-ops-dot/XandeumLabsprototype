@@ -181,13 +181,13 @@ export default async function Page(props: { searchParams: SearchParams }) {
                         </Link>
                       </td>
                       <td className="hidden whitespace-nowrap px-5 py-4 text-sm text-zinc-400 md:table-cell">
-                        {row.currentAddress ?? <span className="text-zinc-600">—</span>}
+                        {row.currentAddress ?? <span className="text-zinc-600">--</span>}
                       </td>
                       <td className="hidden whitespace-nowrap px-5 py-4 sm:table-cell">
                         {row.currentVersion ? (
                           <Badge variant="info">{row.currentVersion}</Badge>
                         ) : (
-                          <span className="text-sm text-zinc-600">—</span>
+                          <span className="text-sm text-zinc-600">--</span>
                         )}
                       </td>
                       <td className="whitespace-nowrap px-5 py-4 text-sm text-zinc-400">

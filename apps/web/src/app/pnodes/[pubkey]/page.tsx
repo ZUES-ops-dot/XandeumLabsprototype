@@ -51,8 +51,8 @@ export default async function Page(props: { params: { pubkey: string } }) {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard title="First seen" value={formatDateTime(data.pnode.first_seen_at)} />
         <StatCard title="Last seen" value={formatDateTime(data.pnode.last_seen_at)} />
-        <StatCard title="Address" value={data.pnode.current_address ?? '—'} />
-        <StatCard title="Version" value={data.pnode.current_version ?? '—'} />
+        <StatCard title="Address" value={data.pnode.current_address ?? '--'} />
+        <StatCard title="Version" value={data.pnode.current_version ?? '--'} />
       </div>
 
       <Card>
@@ -81,10 +81,10 @@ export default async function Page(props: { params: { pubkey: string } }) {
                       {formatDateTime(s.observed_at)}
                     </td>
                     <td className="border-b border-zinc-900 px-4 py-3 text-zinc-300">
-                      {s.address ?? '—'}
+                      {s.address ?? '--'}
                     </td>
                     <td className="border-b border-zinc-900 px-4 py-3 text-zinc-300">
-                      {s.version ?? '—'}
+                      {s.version ?? '--'}
                     </td>
                   </tr>
                 ))}

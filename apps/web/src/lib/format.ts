@@ -3,7 +3,7 @@ export function formatNumber(value: number): string {
 }
 
 export function formatDateTime(value: string | Date | null | undefined): string {
-  if (!value) return '—';
+  if (!value) return '--';
   const d = typeof value === 'string' ? new Date(value) : value;
   return new Intl.DateTimeFormat(undefined, {
     year: 'numeric',

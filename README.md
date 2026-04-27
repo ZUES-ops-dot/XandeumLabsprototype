@@ -14,16 +14,16 @@
 
 ## What problem this solves
 
-The Xandeum pNode network needs operator-grade visibility: which nodes are up, who's missing gossip rounds, where rollups are bottlenecking, and how stake is distributed over time. This monorepo builds the full stack — ingestion, indexing, storage, BFF API, and a dashboard — with each concern split into its own service for independent scaling.
+The Xandeum pNode network needs operator-grade visibility: which nodes are up, who's missing gossip rounds, where rollups are bottlenecking, and how stake is distributed over time. This monorepo builds the full stack -- ingestion, indexing, storage, BFF API, and a dashboard -- with each concern split into its own service for independent scaling.
 
 ## Highlights
 
-- **TimescaleDB-first persistence** — pNode events are append-only and time-series-shaped; using a hypertable from day one avoids retro-fitting later
-- **Service split, not service-mesh** — three Node services (`api`, `indexer`, `analytics`) and a Next.js dashboard, all in one monorepo for shared types
-- **Validated ingestion** — `services/indexer` validates every gossip payload via shared Zod schemas before write
-- **Materialized rollups** — `services/analytics` builds continuous aggregates so the dashboard never scans raw rows
-- **Shared kernel** — `packages/shared` exposes types, Zod validators, and result helpers; `packages/database` wraps TimescaleDB connection + migrations; `packages/logger` wraps pino
-- **Local-first DX** — `npm run db:up` brings up TimescaleDB via Docker; everything else runs with `npm run dev`
+- **TimescaleDB-first persistence** -- pNode events are append-only and time-series-shaped; using a hypertable from day one avoids retro-fitting later
+- **Service split, not service-mesh** -- three Node services (`api`, `indexer`, `analytics`) and a Next.js dashboard, all in one monorepo for shared types
+- **Validated ingestion** -- `services/indexer` validates every gossip payload via shared Zod schemas before write
+- **Materialized rollups** -- `services/analytics` builds continuous aggregates so the dashboard never scans raw rows
+- **Shared kernel** -- `packages/shared` exposes types, Zod validators, and result helpers; `packages/database` wraps TimescaleDB connection + migrations; `packages/logger` wraps pino
+- **Local-first DX** -- `npm run db:up` brings up TimescaleDB via Docker; everything else runs with `npm run dev`
 
 ## Architecture
 
@@ -107,7 +107,7 @@ npm run start
 
 ```
 apps/
-  api/                Fastify BFF — pNode data and network metrics
+  api/                Fastify BFF -- pNode data and network metrics
   web/                Next.js App Router dashboard
 services/
   indexer/            Polls gossip sources, validates payloads, writes snapshots
@@ -135,8 +135,8 @@ Each service reads from its own `.env`. Common variables:
 
 ## Roadmap
 
-See [Issues](https://github.com/ZUES-ops-dot/XandeumLabsprototype/issues) — pNode performance heatmap, timezone offsets on dashboard charts, consolidated DB client wrappers, peer-discovery resilience.
+See [Issues](https://github.com/ZUES-ops-dot/XandeumLabsprototype/issues) -- pNode performance heatmap, timezone offsets on dashboard charts, consolidated DB client wrappers, peer-discovery resilience.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT -- see [LICENSE](LICENSE).
